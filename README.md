@@ -1,2 +1,2 @@
-# licencensed-sponsors-search
+# ponsors-search
 Search through registered companies
