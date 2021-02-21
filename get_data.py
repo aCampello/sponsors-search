@@ -9,5 +9,5 @@ doc_links = [x for x in html.findAll('a') if 'tier_2_5' in x.attrs.get('href', '
 
 r = requests.get(doc_links[-1].attrs.get('href'))
 
-with open('data.pdf', 'wb') as f:
+with open('sponsors.pdf', 'wb') as f:
     f.write(r.content)
