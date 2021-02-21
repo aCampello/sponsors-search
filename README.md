@@ -4,7 +4,7 @@ The list of [licensed visa sponsors](https://www.gov.uk/government/publications/
 
 Webpage currently avaliable [here](https://antoniocampello.com/sponsors-search/).
 
-The code is under MIT and all the data contains public sector information licensed under the Open Government Licence v3.0.
+The code is under MIT and the data contains public sector information licensed under the Open Government Licence v3.0.
 
 ## Scripts
 
