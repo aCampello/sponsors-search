@@ -15,9 +15,7 @@
 // Search
 
 
-    function myFunction(event) {
-        event.preventDefault();
-        event.stopPropagation();
+    function myFunction() {
          let searched = $('#inputSearch').val().toLowerCase();
          $('.alert').hide()
          $('#tableOfResults > tbody').empty();
@@ -60,7 +58,7 @@
     <div class="row h-100 m-5">
         <div class="col-12">
 
-            <form id="searchForm" onsubmit="return myFunction(e)">
+            <form id="searchForm" onsubmit="return myFunction()">
                 <div class="form-group row">
 
 
