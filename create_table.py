@@ -12,7 +12,7 @@ table_settings = {
 import tqdm
 import pdfplumber
 
-pdf = pdfplumber.open("data.pdf")
+pdf = pdfplumber.open("sponsors.pdf")
 
 total_table = []
 for page in tqdm.tqdm(pdf.pages):
@@ -46,4 +46,4 @@ for row in total_table[1:]:
 import pandas as pd
 
 df = pd.DataFrame(result_table, columns=['Organisation Name', 'Town/City', 'County', 'Type & Rating', 'Route'])
-df.to_csv('data.csv')
+df.to_csv('sponsors.csv')

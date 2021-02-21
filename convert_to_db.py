@@ -1,9 +1,12 @@
 import pandas as pd
+import json
 
 df = pd.read_csv('data.csv', index_col=0)
 
-import json
-
+df_json = df.to_dict(orient='records')
 with open('data.js', 'w') as f:
-    df_json = json.dump(df.to_dict(orient='records'), f)
+    f.write('var data = ')
+    json.dump(df_json, f)
 
+with open('sponsors.json', 'w') as f:
+    json.dump(df_json, f)
