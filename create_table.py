@@ -28,6 +28,8 @@ for row in total_table[1:]:
     else:
         # If somehow the line continued into the next one, adds the remaining of
         if row[0] == '' and not merge_rows:
+            result_table[-1][-1] = result_table[-1][-1] or ''
+            result_table[-1][-2] = result_table[-1][-2] or ''
             result_table[-1][-1] += f'\n{row[-1]}'
             result_table[-1][-2] += f'\n{row[-2]}'
             continue
