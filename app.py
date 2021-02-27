@@ -13,19 +13,22 @@ def _save_to_s3(path='.'):
     s3_client.upload_file(
         os.path.join(path, 'data.js'),
         os.environ['AWS_BUCKET'],
-        'data.js'
+        'data.js',
+        ExtraArgs={'ACL': 'public-read'}
     )
 
     s3_client.upload_file(
         os.path.join(path, 'sponsors.json'),
         os.environ['AWS_BUCKET'],
-        'sponsors.json'
+        'sponsors.json',
+        ExtraArgs={'ACL': 'public-read'}
     )
 
     s3_client.upload_file(
         os.path.join(path, 'sponsors.csv'),
         os.environ['AWS_BUCKET'],
-        'sponsors.csv'
+        'sponsors.csv',
+        ExtraArgs={'ACL': 'public-read'}
     )
 
 
