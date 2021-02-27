@@ -1,3 +1,5 @@
+import datetime
+
 import os
 import json
 
@@ -9,6 +11,7 @@ def convert_to_db(path='.'):
 
     df_json = df.to_dict(orient='records')
     with open(os.path.join(path, 'data.js'), 'w') as f:
+        f.write(f'var when = \"{datetime.datetime.utcnow().strftime("%d/%m/%Y")}\"\n')
         f.write('var data = ')
         json.dump(df_json, f)
 
