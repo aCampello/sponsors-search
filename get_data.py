@@ -9,7 +9,7 @@ def get_data(path ='.'):
 
     html = BeautifulSoup(r.content)
 
-    doc_links = [x for x in html.findAll('a') if 'tier_2_5' in x.attrs.get('href', '').lower()]
+    doc_links = [x for x in html.findAll('a') if '.pdf' in x.attrs.get('href', '').lower()]
 
     r = requests.get(doc_links[-1].attrs.get('href'))
 

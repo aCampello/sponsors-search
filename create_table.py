@@ -18,6 +18,7 @@ def create_table(path='.', verbose=True):
 
     output_pdf = os.path.join(path, 'sponsors.pdf')
 
+
     pdf = pdfplumber.open(output_pdf)
 
     total_table = []
