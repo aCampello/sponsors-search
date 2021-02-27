@@ -11,9 +11,9 @@
     <title>Companies search</title>
 
 </head>
-<script type="text/javascript">
+<script type="module">
 // Search
-
+    $('#updated').text(" (updated on " + when + ")")
 
     function myFunction() {
          let searched = $('#inputSearch').val().toLowerCase();
@@ -64,7 +64,7 @@
 
                     <div class="col-md-10 col-12">
                         <h3>Register of Licensed Sponsors Search</h3>
-                        <text class="text-muted"><br>Full data: <a href="https://antonio-campello-website-resources.s3.eu-west-2.amazonaws.com/sponsors.csv">csv</a>,
+                        <text class="text-muted"><br>Full data<span id="updated"></span>: <a href="https://antonio-campello-website-resources.s3.eu-west-2.amazonaws.com/sponsors.csv">csv</a>,
                             <a href="https://antonio-campello-website-resources.s3.eu-west-2.amazonaws.com/sponsors.json">json</a>, derived from <a href="https://www.gov.uk/government/publications/register-of-licensed-sponsors-workers">the official register (pdf)</a>.<br />
                             Contains public sector information licensed under  <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence v3.0</a><br>
                         </text>
