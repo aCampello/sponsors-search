@@ -15,7 +15,7 @@ The code:
 - Generates a JSON and a CSV
 - Includes a index.html to serve it as a front-end.
 
-The code is set up to update periodically (every week).
+The code is set up to update periodically (every week) using AWS Lambda (configured via app.py)!
 
 ## Want to contribute?
 
