@@ -16,35 +16,45 @@
 // Search
     $('#updated').text(" (updated on " + when + ")")
 </script>
+
+ <script src=
+        "https://d3js.org/d3.v4.min.js">
+    </script>
+
 <script type="text/javascript">
-        function myFunction() {
-         let searched = $('#inputSearch').val().toLowerCase();
-         $('.alert').hide()
-         $('#tableOfResults > tbody').empty();
+var globalData;
+d3.csv("https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1060689/2022-03-15_-_Worker_and_Temporary_Worker.csv", function(data){
+globalData = data
+});
 
-          $('#tableRow').attr('class', 'row');
+    function myFunction() {
+     let searched = $('#inputSearch').val().toLowerCase();
+     $('.alert').hide()
+     $('#tableOfResults > tbody').empty();
 
-          results = 0
+      $('#tableRow').attr('class', 'row');
 
-          for (company of data) {
-          if (results > 10) {
-                break;
-            }
-            if (company['Organisation Name'].toLowerCase().includes(searched)) {
-                content = '<tr>' + '<td>' + company['Organisation Name'] + '</td>' +
-               '<td>' + company['Town/City'] + '</td>' + '<td>' + company['Type & Rating'].replace('\n','<br>') + '</td>'
-                + '<td>' + company['Route'].replace('\n','<br>') + '</td>'
-               +'</tr>'
-                $('#tableOfResults > tbody').append(content)
-                results++;
-            }
+      results = 0
 
-          }
-          if (results > 10) {
-            $('.alert').show()
-          }
-          return false;
-     }
+      for (company of globalData) {
+      if (results > 10) {
+            break;
+        }
+        if (company['Organisation Name'].toLowerCase().includes(searched)) {
+            content = '<tr>' + '<td>' + company['Organisation Name'] + '</td>' +
+           '<td>' + company['Town/City'] + '</td>' + '<td>' + company['Type & Rating'].replace('\n','<br>') + '</td>'
+            + '<td>' + company['Route'].replace('\n','<br>') + '</td>'
+           +'</tr>'
+            $('#tableOfResults > tbody').append(content)
+            results++;
+        }
+
+      }
+      if (results > 10) {
+        $('.alert').show()
+      }
+      return false;
+ }
 </script>
 <script type="text/javascript" src="https://antonio-campello-website-resources.s3.eu-west-2.amazonaws.com/data.js"></script>
 
@@ -65,10 +75,10 @@
 
                     <div class="col-md-10 col-12">
                         <h3>Register of Licensed Sponsors Search</h3>
-                        <text class="text-muted"><br>Full data<span id="updated"></span>: <a href="https://antonio-campello-website-resources.s3.eu-west-2.amazonaws.com/sponsors.csv">csv</a>,
-                            <a href="https://antonio-campello-website-resources.s3.eu-west-2.amazonaws.com/sponsors.json">json</a>, derived from <a href="https://www.gov.uk/government/publications/register-of-licensed-sponsors-workers">the official register (pdf)</a>.<br />
+                        <text class="text-muted">
+                            Derived from <a href="https://www.gov.uk/government/publications/register-of-licensed-sponsors-workers">the official register</a>.<br />
                             Contains public sector information licensed under  <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence v3.0</a><br />
-                            <span class="fa fa-github"></span> This project is open source. Contribute <a href="https://github.com/acampello/sponsors-search"><span class="label"> here</span></a></h3>
+                            <span class="fa fa-github"></span> This project is open source. Contribute <a href="https://github.com/acampello/sponsors-search"><span class="label"> here</span></a>.</h3>
                         </text>
                     </div>
 
