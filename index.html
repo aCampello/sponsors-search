@@ -26,11 +26,13 @@
 
 <script type="text/javascript">
 var globalData;
+var tab;
 d3.csv("https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1060689/2022-03-15_-_Worker_and_Temporary_Worker.csv", function(data){
 globalData = data
 });
 
     function myFunction() {
+    console.log(globalData[0])
      let searched = $('#inputSearch').val().toLowerCase();
      $('.alert').hide()
      $('#tableOfResults > tbody').empty();
@@ -38,6 +40,10 @@ globalData = data
       $('#tableRow').attr('class', 'row');
 
       results = 0
+            if (tab) {
+            tab.clear()
+            tab.destroy()
+       }
 
       for (company of globalData) {
       if (results > 100) {
@@ -56,12 +62,13 @@ globalData = data
       if (results > 50) {
         $('.alert').show()
       }
-      $(document).ready(function() {
-    $('#tableOfResults').DataTable({
-    destroy: true,
-    searching: false
-    });
-});
+
+          $(document).ready(function() {
+                tab = $('#tableOfResults').DataTable({
+                    searching: false
+                });
+           });
+
       return false;
  }
 </script>
